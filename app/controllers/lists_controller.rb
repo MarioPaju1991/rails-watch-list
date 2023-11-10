@@ -17,6 +17,7 @@ class ListsController < ApplicationController
     @list.save
     redirect_to list_path(@list)
   end
+
   def list_params
     params.require(:list).permit(:name)
   end

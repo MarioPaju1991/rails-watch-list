@@ -2,7 +2,7 @@
 <% @list.bookmarks.each do |bookmark|%>
   <h1>Movie Title:<%= bookmark.movie.title %></h1>
   <h2>Overview: <%= bookmark.movie.overview%></h2>
-  <h2>Poster URL: <%= bookmark.movie.poster_url%></h2>
+  <%= image_tag bookmark.movie.poster_url%>
   <h2>Rating: <%= bookmark.movie.rating%></h2>
 <% end %>
 <%= link_to "Add to bookmarks", new_list_bookmark_path(@list) %>
