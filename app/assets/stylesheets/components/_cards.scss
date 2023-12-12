@@ -33,11 +33,12 @@
 
 .row {
   display:flex;
-  justify-content: center
+  justify-content: space-between;
 }
 
 .column {
-  width: 50%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 /* Clear floats after the columns */

@@ -1,11 +1,21 @@
-<h1><%=@list.name%></h1>
-<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-<% @list.bookmarks.each do |bookmark|%>
-  <h1>Movie Title:<%= bookmark.movie.title %></h1>
-  <h2>Overview: <%= bookmark.movie.overview%></h2>
-  <%= image_tag bookmark.movie.poster_url%>
-  <h2>Rating: <%= bookmark.movie.rating%></h2>
-<% end %>
-<%= link_to "Add to bookmarks", new_list_bookmark_path(@list) %>
-<%= link_to "Back to list", lists_path %>
-<%= link_to "delete this list", list_path(@list), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+ 
+<div class="gradient-background">
+  <div class="container">
+    <h1 class="text-center"><%= @list.name %></h1>
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card">
+        <%= image_tag bookmark.movie.poster_url, class: 'card-img-top', alt: 'Movie Poster' %>
+        <div class="card-body">
+          <h5 class="card-title">Movie Title: <%= bookmark.movie.title %></h5>
+          <p class="card-text">Overview: <%= bookmark.movie.overview %></p>
+          <p class="card-text">Rating: <%= bookmark.movie.rating %></p>
+        </div>
+      </div>
+    <% end %>
+    <div class="action-buttons">
+      <%= link_to "Add to bookmarks", new_list_bookmark_path(@list), class: 'btn btn-primary' %>
+      <%= link_to "Back to list", lists_path, class: 'btn btn-secondary' %>
+      <%= link_to "Delete this list", list_path(@list), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+    </div>
+  </div>
+</div>
