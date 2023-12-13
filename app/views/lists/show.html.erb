@@ -1,7 +1,6 @@
- 
 <div class="gradient-background">
   <div class="container">
-    <h1 class="text-center"><%= @list.name %></h1>
+    <h1 class="text-center" style="color: white;"><%= @list.name %></h1>
     <% @list.bookmarks.each do |bookmark| %>
       <div class="card">
         <%= image_tag bookmark.movie.poster_url, class: 'card-img-top', alt: 'Movie Poster' %>
@@ -15,7 +14,7 @@
     <div class="action-buttons">
       <%= link_to "Add to bookmarks", new_list_bookmark_path(@list), class: 'btn btn-primary' %>
       <%= link_to "Back to list", lists_path, class: 'btn btn-secondary' %>
-      <%= link_to "Delete this list", list_path(@list), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+      <%# <%= link_to "Delete this list", list_path(@list), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
     </div>
   </div>
 </div>
