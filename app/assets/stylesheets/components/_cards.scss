@@ -47,3 +47,23 @@
   display: table;
   clear: both;
 }
+
+// Media Queries for Responsive Design */
+
+//Tablets and larger screens */
+@media (min-width: 768px) {
+  .cards a {
+    width: calc(50% - 40px); /* Adjust width for larger screens */
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+  .cards {
+    flex-direction: column; /* Stack cards vertically on small screens */
+  }
+
+  .cards a {
+    width: calc(100% - 40px); /* Full width for small screens */
+  }
+}
